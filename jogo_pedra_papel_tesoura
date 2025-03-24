@@ -1,0 +1,80 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+int geraNumero(){
+    return rand() % 3;
+}
+
+void compararEscolhas(int escolha, int& pontosUsuario, int& pontosMaquina){
+    int numMaquina = geraNumero();
+    
+     switch(escolha){
+         case 0: 
+         cout << "Você escolheu Pedra!";
+         break;
+         
+         case 1:
+         cout << "Você escolheu Papel!";
+         break;
+         
+         case 2:
+         cout << "Você escolheu Tesoura!";
+         break;
+         
+         default:
+         cout << "Inválido.";
+     }
+    
+    cout << "A máquina escolheu: " << numMaquina << endl;
+}
+
+void jogoPedraPapelTesoura(int escolha, int numMaquina, int& pontosUsuario, int& pontosMaquina){
+    if(escolha == numMaquina){
+        pontosUsuario++;
+        pontosMaquina++;
+        cout << "Empate!";
+        
+    }
+    
+    cout << "Placar: " << pontosUsuario << "(usuário)" << " x " << pontosMaquina << "(máquina)" << endl;
+    cout << endl;
+}
+
+
+int main()
+{
+    srand(time(0));
+    int pontosUsuario = 0, pontosMaquina = 0, escolha, querJogar;
+    
+    do {
+        do {
+            cout << "=== Seja bem-vindo(a) ao jogo Pedra, Papel ou Tesoura! ===\n";
+            cout << endl;
+            cout << "Escolha 0 (Pedra), 1  (Papel) ou 2 (Tesoura): \n";
+            cin >> escolha;
+            
+            if (escolha < 0 || escolha > 2){
+                cout << "Número inávlido. Escolha entre 0 ou 2.\n";
+                cin >> escolha;
+            }
+            
+        } while (escolha < 0 || escolha > 2);
+        
+    compararEscolhas(escolha);
+    jogoPedraPapelTesoura(escolha, pontosUsuario, pontosMaquina);
+    
+    cout << "Você gostaria de jogar novamente? Digite 1 para sim ou qualquer tecla para sair: ";
+    cin >> querJogar;
+    
+    cout << endl;
+    cout << endl;
+    } while (querJogar == 1);
+    
+    cout << "Obrigada por jogar!";
+    
+    
+    return 0;
+}
