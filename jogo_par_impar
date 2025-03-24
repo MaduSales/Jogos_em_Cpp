@@ -34,24 +34,33 @@ void jogoParImpar(bool escolha, int numUsuario, int& pontosUsuario, int& pontosM
 int main()
 {
     srand(time(0));
-    bool escolha, querJogar;
-    int numUsuario = 0, pontosUsuario = 0, pontosMaquina = 0;
+    int numUsuario = 0, pontosUsuario = 0, pontosMaquina = 0, escolha, querJogar;
     
     do {
-    cout << "Escolha par ou ímpar! Digite 0 para par ou 1 para ímpar: ";
-    cin >> escolha;
+        do {
+            cout << "Escolha par ou ímpar! Digite 0 para par ou 1 para ímpar: \n";
+            cin >> escolha;
+            
+            if (escolha != 0 && escolha != 1){
+                cout << "Número inávlido. Escolha 0 ou 1.\n";
+                cin >> escolha;
+            }
+            
+        } while (escolha != 0 && escolha != 1);
         
     cout << "Agora digite um número: ";
     cin >> numUsuario;
     
     jogoParImpar(escolha, numUsuario, pontosUsuario, pontosMaquina);
     
-    cout << "Você gostaria de jogar novamente? Digite 1 para sim ou 0 para não: ";
+    cout << "Você gostaria de jogar novamente? Digite 1 para sim ou qualquer tecla para sair: ";
     cin >> querJogar;
     
     cout << endl;
     cout << endl;
     } while (querJogar == 1);
+    
+    cout << "Obrigada por jogar!";
     
     
     return 0;
