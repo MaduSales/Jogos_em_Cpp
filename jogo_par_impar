@@ -1,0 +1,58 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+int geraNumero(){
+    return rand() % 11;
+}
+
+void jogoParImpar(bool escolha, int numUsuario, int& pontosUsuario, int& pontosMaquina){
+    int numMaquina = geraNumero(), soma;
+    
+    cout << "O número gerado pela máquina foi: " << numMaquina << endl;
+    soma = numMaquina + numUsuario;
+    cout << "A conta entre os dois números é " << numMaquina << " + " << numUsuario << " = " << soma << endl;
+    cout << endl;
+    
+    if (soma % 2 == 0 && escolha == 0 || soma % 2 != 0 && escolha != 0){
+        pontosUsuario++;
+        cout << "PARABÉNS! VOCÊ GANHOU! \n";
+        
+    }
+    else{
+        pontosMaquina++;
+        cout << "Que pena, não foi dessa vez...\n";
+    }
+    
+    cout << "Placar: " << pontosUsuario << "(usuário)" << " x " << pontosMaquina << "(máquina)" << endl;
+    cout << endl;
+}
+
+
+int main()
+{
+    srand(time(0));
+    bool escolha, querJogar;
+    int numUsuario = 0, pontosUsuario = 0, pontosMaquina = 0;
+    
+    do {
+    cout << "Escolha par ou ímpar! Digite 0 para par ou 1 para ímpar: ";
+    cin >> escolha;
+        
+    cout << "Agora digite um número: ";
+    cin >> numUsuario;
+    
+    jogoParImpar(escolha, numUsuario, pontosUsuario, pontosMaquina);
+    
+    cout << "Você gostaria de jogar novamente? Digite 1 para sim ou 0 para não: ";
+    cin >> querJogar;
+    
+    cout << endl;
+    cout << endl;
+    } while (querJogar == 1);
+    
+    
+    return 0;
+}
