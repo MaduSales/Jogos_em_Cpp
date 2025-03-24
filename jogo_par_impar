@@ -38,7 +38,9 @@ int main()
     
     do {
         do {
-            cout << "Escolha par ou ímpar! Digite 0 para par ou 1 para ímpar: \n";
+            cout << "=== Seja bem-vindo(a) ao jogo do ímpar ou par! ===\n";
+            cout << endl;
+            cout << "Digite 0 para escolher par ou 1 para ímpar: \n";
             cin >> escolha;
             
             if (escolha != 0 && escolha != 1){
