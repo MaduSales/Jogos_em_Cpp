@@ -8,7 +8,7 @@ int geraNumero(){
     return rand() % 11;
 }
 
-void jogoParImpar(bool escolha, int numUsuario, int& pontosUsuario, int& pontosMaquina){
+void jogoParImpar(int escolha, int numUsuario, int& pontosUsuario, int& pontosMaquina){
     int numMaquina = geraNumero(), soma;
     
     cout << "O número gerado pela máquina foi: " << numMaquina << endl;
