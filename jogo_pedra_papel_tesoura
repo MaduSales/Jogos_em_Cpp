@@ -8,8 +8,7 @@ int geraNumero(){
     return rand() % 3;
 }
 
-void compararEscolhas(int escolhaUsuario){
-    int escolhaMaquina = geraNumero();
+void compararEscolhas(int escolhaUsuario, int escolhaMaquina){
     
      switch(escolhaUsuario){
          case 0: 
@@ -48,22 +47,20 @@ void compararEscolhas(int escolhaUsuario){
 
 void jogoPedraPapelTesoura(int escolhaUsuario, int escolhaMaquina, int& pontosUsuario, int& pontosMaquina){
     if(escolhaUsuario == escolhaMaquina){
-        pontosUsuario++;
-        pontosMaquina++;
-        cout << "Empate!";
+        cout << "Empate! Ninguém pontuou!\n";
     }
     else if ((escolhaUsuario == 0 && escolhaMaquina == 2) ||
     (escolhaUsuario == 1 && escolhaMaquina == 0) || 
     (escolhaUsuario == 2 && escolhaMaquina == 1)){
         pontosUsuario++;
-        cout << "Você ganhou! Parabéns!\n";
+        cout << "\nVocê ganhou! Parabéns!\n";
     } 
     else {
         pontosMaquina++;
-        cout << "Que pena... talvez na próxima\n";
+        cout << "\nQue pena... talvez na próxima\n";
     }
     
-    cout << "Placar: " << pontosUsuario << "(usuário)" << " x " << pontosMaquina << "(máquina)" << endl;
+    cout << "\nPlacar: " << pontosUsuario << "(usuário)" << " x " << pontosMaquina << "(máquina)" << endl;
     cout << endl;
 }
 
@@ -74,20 +71,23 @@ int main()
     int pontosUsuario = 0, pontosMaquina = 0, escolhaUsuario, escolhaMaquina, querJogar;
     
     do {
-        do {
-            cout << "=== Seja bem-vindo(a) ao jogo Pedra, Papel ou Tesoura! ===\n";
+         cout << "=== Seja bem-vindo(a) ao jogo Pedra, Papel, Tesoura! ===\n";
             cout << endl;
             cout << "Escolha 0 (Pedra), 1  (Papel) ou 2 (Tesoura): \n";
             cin >> escolhaUsuario;
             
+        do {
+            
             if (escolhaUsuario < 0 || escolhaUsuario > 2){
-                cout << "Número inávlido. Escolha entre 0 ou 2.\n";
+                cout << "Número inválido. Escolha entre 0 ou 2.\n";
                 cin >> escolhaUsuario;
             }
             
         } while (escolhaUsuario < 0 || escolhaUsuario > 2);
         
-    compararEscolhas(escolhaUsuario);
+    int escolhaMaquina = geraNumero();
+    
+    compararEscolhas(escolhaUsuario, escolhaMaquina);
     jogoPedraPapelTesoura(escolhaUsuario, escolhaMaquina, pontosUsuario, pontosMaquina);
     
     cout << "Você gostaria de jogar novamente? Digite 1 para sim ou qualquer tecla para sair: ";
@@ -97,7 +97,7 @@ int main()
     cout << endl;
     } while (querJogar == 1);
     
-    cout << "Obrigada por jogar!";
+    cout << "\nObrigada por jogar!";
     
     
     return 0;
