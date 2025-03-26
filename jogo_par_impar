@@ -19,7 +19,7 @@ void jogoParImpar(int escolha, int numUsuario, int& pontosUsuario, int& pontosMa
     cout << "A conta entre os dois números é " << numMaquina << " + " << numUsuario << " = " << soma << endl;
     cout << endl;
     
-    if (soma % 2 == 0 && escolha == Par || soma % 2 != 0 && escolha != Impar){
+    if (soma % 2 == 0 && escolha == Par || soma % 2 != 0 && escolha == Impar){
         pontosUsuario++;
         cout << "PARABÉNS! VOCÊ GANHOU! \n";
         
