@@ -4,6 +4,9 @@
 
 using namespace std;
 
+const int Par = 0;
+const int Impar = 1;
+
 int geraNumero(){
     return rand() % 11;
 }
@@ -16,7 +19,7 @@ void jogoParImpar(int escolha, int numUsuario, int& pontosUsuario, int& pontosMa
     cout << "A conta entre os dois números é " << numMaquina << " + " << numUsuario << " = " << soma << endl;
     cout << endl;
     
-    if (soma % 2 == 0 && escolha == 0 || soma % 2 != 0 && escolha != 0){
+    if (soma % 2 == 0 && escolha == Par || soma % 2 != 0 && escolha != Impar){
         pontosUsuario++;
         cout << "PARABÉNS! VOCÊ GANHOU! \n";
         
@@ -37,18 +40,15 @@ int main()
     int numUsuario = 0, pontosUsuario = 0, pontosMaquina = 0, escolha, querJogar;
     
     do {
-        do {
-            cout << "=== Seja bem-vindo(a) ao jogo do ímpar ou par! ===\n";
+        cout << "=== Seja bem-vindo(a) ao jogo do ímpar ou par! ===\n";
             cout << endl;
-            cout << "Digite 0 para escolher par ou 1 para ímpar: \n";
+            cout << "Digite 0 para escolher par ou 1 para ímpar: ";
             cin >> escolha;
-            
-            if (escolha != 0 && escolha != 1){
-                cout << "Número inávlido. Escolha 0 ou 1.\n";
+
+       while (escolha != 0 && escolha != 1){
+            cout << "Número inválido. Escolha 0 ou 1: ";
                 cin >> escolha;
-            }
-            
-        } while (escolha != 0 && escolha != 1);
+        }
         
     cout << "Agora digite um número: ";
     cin >> numUsuario;
@@ -57,12 +57,10 @@ int main()
     
     cout << "Você gostaria de jogar novamente? Digite 1 para sim ou qualquer tecla para sair: ";
     cin >> querJogar;
-    
-    cout << endl;
-    cout << endl;
+  
     } while (querJogar == 1);
     
-    cout << "Obrigada por jogar!";
+    cout << "\nObrigada por jogar!";
     
     
     return 0;
