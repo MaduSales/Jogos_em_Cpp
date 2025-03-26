@@ -12,42 +12,42 @@ void compararEscolhas(int escolhaUsuario, int escolhaMaquina){
     
      switch(escolhaUsuario){
          case 0: 
-         cout << "Você escolheu Pedra!\n";
+         cout << "\nVocê escolheu Pedra!\n";
          break;
          
          case 1:
-         cout << "Você escolheu Papel!\n";
+         cout << "\nVocê escolheu Papel!\n";
          break;
          
          case 2:
-         cout << "Você escolheu Tesoura!\n";
+         cout << "\nVocê escolheu Tesoura!\n";
          break;
          
          default:
-         cout << "Inválido.";
+         cout << "\nInválido.";
      }
     
     switch(escolhaMaquina){
          case 0: 
-         cout << "A máquina escolheu Pedra!\n";
+         cout << "\nA máquina escolheu Pedra!\n";
          break;
          
          case 1:
-         cout << "A máquina escolheu Papel!\n";
+         cout << "\nA máquina escolheu Papel!\n";
          break;
          
          case 2:
-         cout << "A máquina escolheu Tesoura!\n";
+         cout << "\nA máquina escolheu Tesoura!\n";
          break;
          
          default:
-         cout << "Inválido.";
+         cout << "\nInválido.";
      }
 }
 
 void jogoPedraPapelTesoura(int escolhaUsuario, int escolhaMaquina, int& pontosUsuario, int& pontosMaquina){
     if(escolhaUsuario == escolhaMaquina){
-        cout << "Empate! Ninguém pontuou!\n";
+        cout << "\nNinguém pontuou!\n";
     }
     else if ((escolhaUsuario == 0 && escolhaMaquina == 2) ||
     (escolhaUsuario == 1 && escolhaMaquina == 0) || 
@@ -60,10 +60,12 @@ void jogoPedraPapelTesoura(int escolhaUsuario, int escolhaMaquina, int& pontosUs
         cout << "\nQue pena... talvez na próxima\n";
     }
     
+}
+
+void exibirPlacar(int pontosUsuario, int pontosMaquina){
     cout << "\nPlacar: " << pontosUsuario << "(usuário)" << " x " << pontosMaquina << "(máquina)" << endl;
     cout << endl;
 }
-
 
 int main()
 {
@@ -71,24 +73,22 @@ int main()
     int pontosUsuario = 0, pontosMaquina = 0, escolhaUsuario, escolhaMaquina, querJogar;
     
     do {
-         cout << "=== Seja bem-vindo(a) ao jogo Pedra, Papel, Tesoura! ===\n";
-            cout << endl;
-            cout << "Escolha 0 (Pedra), 1  (Papel) ou 2 (Tesoura): \n";
+         cout << "=== Seja bem-vindo(a) ao jogo Pedra, Papel, Tesoura! ===\n\n";
+            cout << "Escolha 0 (Pedra), 1  (Papel) ou 2 (Tesoura): ";
             cin >> escolhaUsuario;
             
-        do {
-            
-            if (escolhaUsuario < 0 || escolhaUsuario > 2){
-                cout << "Número inválido. Escolha entre 0 ou 2.\n";
-                cin >> escolhaUsuario;
-            }
-            
-        } while (escolhaUsuario < 0 || escolhaUsuario > 2);
+        
+        while (escolhaUsuario < 0 || escolhaUsuario > 2){
+            cout << "Número inválido. Escolha entre 0 ou 2.\n";
+            cin >> escolhaUsuario;
+        }
         
     int escolhaMaquina = geraNumero();
     
     compararEscolhas(escolhaUsuario, escolhaMaquina);
     jogoPedraPapelTesoura(escolhaUsuario, escolhaMaquina, pontosUsuario, pontosMaquina);
+    
+    exibirPlacar(pontosUsuario, pontosMaquina);
     
     cout << "Você gostaria de jogar novamente? Digite 1 para sim ou qualquer tecla para sair: ";
     cin >> querJogar;
@@ -97,7 +97,7 @@ int main()
     cout << endl;
     } while (querJogar == 1);
     
-    cout << "\nObrigada por jogar!";
+    cout << "Obrigada por jogar!";
     
     
     return 0;
