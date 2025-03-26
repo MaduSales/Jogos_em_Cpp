@@ -29,7 +29,10 @@ void jogoParImpar(int escolha, int numUsuario, int& pontosUsuario, int& pontosMa
         cout << "Que pena, não foi dessa vez...\n";
     }
     
-    cout << "Placar: " << pontosUsuario << "(usuário)" << " x " << pontosMaquina << "(máquina)" << endl;
+}
+
+void exibirPlacar(int pontosUsuario, int pontosMaquina){
+    cout << "\nPlacar: " << pontosUsuario << "(usuário)" << " x " << pontosMaquina << "(máquina)" << endl;
     cout << endl;
 }
 
@@ -50,10 +53,11 @@ int main()
                 cin >> escolha;
         }
         
-    cout << "Agora digite um número: ";
+    cout << "\nAgora digite um número: ";
     cin >> numUsuario;
     
     jogoParImpar(escolha, numUsuario, pontosUsuario, pontosMaquina);
+    exibirPlacar(pontosUsuario, pontosMaquina);
     
     cout << "Você gostaria de jogar novamente? Digite 1 para sim ou qualquer tecla para sair: ";
     cin >> querJogar;
