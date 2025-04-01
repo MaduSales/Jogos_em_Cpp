@@ -4,9 +4,9 @@
 
 using namespace std;
 
-const int Pedra = 0;
-const int Papel = 1;
-const int Tesoura = 2;
+const int PEDRA = 0;
+const int PAPEL = 1;
+const int TESOURA = 2;
 
 int geraNumero(){
     return rand() % 3;
@@ -15,15 +15,15 @@ int geraNumero(){
 void compararEscolhas(int escolhaUsuario, int escolhaMaquina){
     
      switch(escolhaUsuario){
-         case Pedra: 
+         case PEDRA: 
          cout << "\nVocê escolheu Pedra!\n";
          break;
          
-         case Papel:
+         case PAPEL:
          cout << "\nVocê escolheu Papel!\n";
          break;
          
-         case Tesoura:
+         case TESOURA:
          cout << "\nVocê escolheu Tesoura!\n";
          break;
          
@@ -32,15 +32,15 @@ void compararEscolhas(int escolhaUsuario, int escolhaMaquina){
      }
     
     switch(escolhaMaquina){
-         case Pedra: 
+         case PEDRA: 
          cout << "\nA máquina escolheu Pedra!\n";
          break;
          
-         case Papel:
+         case PAPEL:
          cout << "\nA máquina escolheu Papel!\n";
          break;
          
-         case Tesoura:
+         case TESOURA:
          cout << "\nA máquina escolheu Tesoura!\n";
          break;
          
@@ -53,9 +53,9 @@ void jogoPedraPapelTesoura(int escolhaUsuario, int escolhaMaquina, int& pontosUs
     if(escolhaUsuario == escolhaMaquina){
         cout << "\nNinguém pontuou!\n";
     }
-    else if ((escolhaUsuario == Pedra && escolhaMaquina == Tesoura) ||
-    (escolhaUsuario == Papel && escolhaMaquina == Pedra) || 
-    (escolhaUsuario == Tesoura && escolhaMaquina == Papel)){
+    else if ((escolhaUsuario == PEDRA && escolhaMaquina == TESOURA) ||
+    (escolhaUsuario == PAPEL && escolhaMaquina == PEDRA) || 
+    (escolhaUsuario == TESOURA && escolhaMaquina == PAPEL)){
         pontosUsuario++;
         cout << "\nVocê ganhou! Parabéns!\n";
     } 
@@ -82,7 +82,7 @@ int main()
             cin >> escolhaUsuario;
             
         
-        while (escolhaUsuario < Pedra || escolhaUsuario > Tesoura){
+        while (escolhaUsuario < PEDRA || escolhaUsuario > TESOURA){
             cout << "Número inválido. Escolha entre 0 (Pedra), 1  (Papel) ou 2 (Tesoura).\n";
             cin >> escolhaUsuario;
         }
