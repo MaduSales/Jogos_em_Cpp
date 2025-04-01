@@ -4,8 +4,8 @@
 
 using namespace std;
 
-const int Par = 0;
-const int Impar = 1;
+const int PAR = 0;
+const int IMPAR = 1;
 
 int geraNumero(){
     return rand() % 11;
@@ -19,7 +19,7 @@ void jogoParImpar(int escolha, int numUsuario, int& pontosUsuario, int& pontosMa
     cout << "A conta entre os dois números é " << numMaquina << " + " << numUsuario << " = " << soma << endl;
     cout << endl;
     
-    if (soma % 2 == 0 && escolha == Par || soma % 2 != 0 && escolha == Impar){
+    if (soma % 2 == 0 && escolha == PAR || soma % 2 != 0 && escolha == IMPAR){
         pontosUsuario++;
         cout << "PARABÉNS! VOCÊ GANHOU! \n";
         
